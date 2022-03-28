@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="cos()">
+    <p>Dzisiaj jest <span id="dzisiejsza"></span></p>
+    <p>dzisiejsza godzina to: <span id="zegar"></span> </p>
+
+    <script>
+function cos(){
+    let data = new Date();
+    let daylist = ["niedziela","poniedzialek","wtorek","sroda","czwartek","piatek","sobota"];
+    document.getElementById("dzisiejsza").innerHTML = daylist[data.getDay()];
+    let godzina = data.getHours();
+    if (godzina<10) godzina = "0" + godzina;
+    let minuty = data.getMinutes();
+    if (minuty<10) minuty = "0" +minuty;
+    let sekundy = data.getSeconds();
+    if (sekundy<10) sekundy = "0" + sekundy;
+    let zegar = document.getElementById("zegar").innerHTML = godzina + " " + minuty + " " + sekundy;
+    setTimeout('cos()', 1000);
+}
+    </script>
+</body>
+</html>
